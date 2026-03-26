@@ -13,7 +13,7 @@ export default function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  
+
   const [isAutoDiscovering, setIsAutoDiscovering] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [discoveryStatus, setDiscoveryStatus] = useState<'idle' | 'success' | 'derived' | 'failed'>('idle');
@@ -60,7 +60,7 @@ export default function App() {
   const handleEncryptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newEnc = e.target.value as SmtpConfig['encryption'];
     setEncryption(newEnc);
-    
+
     // Port automatisch anpassen
     if (newEnc === 'ssl') {
       setPort(465);
@@ -90,7 +90,7 @@ export default function App() {
       setPort(587);
       setEncryption('starttls');
       setAuthMethod('login');
-      setDiscoveryStatus('derived'); 
+      setDiscoveryStatus('derived');
     }
     setIsAutoDiscovering(false);
   }, []);
@@ -142,9 +142,9 @@ export default function App() {
         setSubmitFeedback({ type: 'error', message: data.message || 'Fehler beim Speichern' });
       }
     } catch (error: any) {
-      setSubmitFeedback({ 
-        type: 'error', 
-        message: 'Verbindungsfehler beim Testen der Konfiguration.' 
+      setSubmitFeedback({
+        type: 'error',
+        message: 'Verbindungsfehler beim Testen der Konfiguration.'
       });
     } finally {
       setIsSubmitting(false);
@@ -173,7 +173,7 @@ export default function App() {
             <Settings className="text-primary-blue w-7 h-7" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">SMTP-Check123</h1>
+            <h1 className="text-2xl font-bold tracking-tight">SMTP-Check</h1>
           </div>
         </div>
       </header>
@@ -186,11 +186,10 @@ export default function App() {
 
           <div className="p-8 space-y-10">
             {submitFeedback && (
-              <div className={`p-4 rounded border flex items-center gap-3 text-sm ${
-                submitFeedback.type === 'success' 
-                  ? 'bg-green-50 border-green-200 text-green-700' 
+              <div className={`p-4 rounded border flex items-center gap-3 text-sm ${submitFeedback.type === 'success'
+                  ? 'bg-green-50 border-green-200 text-green-700'
                   : 'bg-red-50 border-red-200 text-red-700'
-              }`}>
+                }`}>
                 {submitFeedback.type === 'success' ? <CheckCircle2 size={18} /> : <AlertCircle size={18} />}
                 <span>{submitFeedback.message}</span>
               </div>
@@ -321,9 +320,9 @@ export default function App() {
                         className="w-full p-2.5 border border-primary-border rounded-sm focus:outline-none focus:ring-1 focus:ring-primary-blue"
                       />
                       <label className="flex items-center gap-2 mt-2 text-sm text-gray-600 cursor-pointer w-max">
-                        <input 
-                          type="checkbox" 
-                          checked={showPassword} 
+                        <input
+                          type="checkbox"
+                          checked={showPassword}
                           onChange={(e) => setShowPassword(e.target.checked)}
                           className="w-4 h-4 cursor-pointer rounded border-gray-300 text-primary-blue focus:ring-primary-blue"
                         />
@@ -341,7 +340,7 @@ export default function App() {
           </div>
 
           <div className="bg-gray-50 border-t border-primary-border p-5 flex justify-end gap-4">
-            <button 
+            <button
               onClick={handleReset}
               className="px-6 py-2.5 border border-gray-300 rounded-sm text-sm font-semibold bg-white text-gray-700 hover:bg-gray-50 transition-colors"
             >
