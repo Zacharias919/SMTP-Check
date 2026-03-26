@@ -1,0 +1,5 @@
+{
+  "name": "SMTP Auto-Discovery Setup",
+  "description": "Eine professionelle E-Mail-Einrichtungs-Oberfläche mit automatischer SMTP-Konfigurationserkennung basierend auf der E-Mail-Domain.",
+  "requestFramePermissions": []
+}
